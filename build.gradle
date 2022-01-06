@@ -1,0 +1,26 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'jongmin'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'	// java version
+
+repositories {
+	mavenCentral()	// 아래의 thymeleaf, boot-starter-web library 를 받을 수 있는 공개 사이트 설정
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'	// html_template_engines
+	implementation 'org.springframework.boot:spring-boot-starter-web'	//web_project
+	// testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
