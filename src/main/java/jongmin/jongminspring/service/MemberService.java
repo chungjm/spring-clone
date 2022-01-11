@@ -22,18 +22,9 @@ public class MemberService {
     // 회원 가입
     public Long join(Member member) {
 
-        long start = System.currentTimeMillis();
-
-        try {
-            validateDuplicateMember(member);    // 같은 이름이 있는 중복 회원X
-            memberRepository.save(member);
-            return member.getId();
-
-        } finally {
-            long finish = System.currentTimeMillis();
-            long timeMS = finish - start;
-            System.out.println("join = " + timeMS + "ms");
-        }
+        validateDuplicateMember(member);    // 같은 이름이 있는 중복 회원X
+        memberRepository.save(member);
+        return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {

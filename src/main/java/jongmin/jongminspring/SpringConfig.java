@@ -1,5 +1,6 @@
 package jongmin.jongminspring;
 
+import jongmin.jongminspring.aop.TimeTraceAop;
 import jongmin.jongminspring.repository.*;
 import jongmin.jongminspring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class SpringConfig {
     public MemberService memberService() {
         return new MemberService(memberRepository);
     }
+
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
+//    }
 
 //    @Bean
 //    public MemberRepository memberRepository() {
